@@ -8,18 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		B0183C9A2814C00500B63288 /* VisionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0183C992814C00500B63288 /* VisionApp.swift */; };
-		B0183C9C2814C00500B63288 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0183C9B2814C00500B63288 /* ContentView.swift */; };
 		B0183C9E2814C00800B63288 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0183C9D2814C00800B63288 /* Assets.xcassets */; };
 		B0183CA12814C00800B63288 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0183CA02814C00800B63288 /* Preview Assets.xcassets */; };
+		B0183CAD2814F31A00B63288 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0183CAC2814F31A00B63288 /* MainView.swift */; };
+		B0183CB828159B1700B63288 /* CoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0183CB728159B1700B63288 /* CoverView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B0183C962814C00500B63288 /* Vision.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vision.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0183C992814C00500B63288 /* VisionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionApp.swift; sourceTree = "<group>"; };
-		B0183C9B2814C00500B63288 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B0183C9D2814C00800B63288 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B0183CA02814C00800B63288 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B0183CA22814C00800B63288 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B0183CAC2814F31A00B63288 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		B0183CB728159B1700B63288 /* CoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,8 +54,10 @@
 		B0183C982814C00500B63288 /* Vision */ = {
 			isa = PBXGroup;
 			children = (
-				B0183C992814C00500B63288 /* VisionApp.swift */,
-				B0183C9B2814C00500B63288 /* ContentView.swift */,
+				B0183CB02814FA6F00B63288 /* Service */,
+				B0183CAA2814C04900B63288 /* Models */,
+				B0183CA92814C04000B63288 /* ModelViews */,
+				B0183CA82814C03600B63288 /* Views */,
 				B0183C9D2814C00800B63288 /* Assets.xcassets */,
 				B0183CA22814C00800B63288 /* Info.plist */,
 				B0183C9F2814C00800B63288 /* Preview Content */,
@@ -67,6 +71,37 @@
 				B0183CA02814C00800B63288 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B0183CA82814C03600B63288 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B0183C992814C00500B63288 /* VisionApp.swift */,
+				B0183CAC2814F31A00B63288 /* MainView.swift */,
+				B0183CB728159B1700B63288 /* CoverView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B0183CA92814C04000B63288 /* ModelViews */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ModelViews;
+			sourceTree = "<group>";
+		};
+		B0183CAA2814C04900B63288 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B0183CB02814FA6F00B63288 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +173,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0183C9C2814C00500B63288 /* ContentView.swift in Sources */,
+				B0183CB828159B1700B63288 /* CoverView.swift in Sources */,
+				B0183CAD2814F31A00B63288 /* MainView.swift in Sources */,
 				B0183C9A2814C00500B63288 /* VisionApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
