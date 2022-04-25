@@ -8,43 +8,44 @@
 import SwiftUI
 
 struct MainView: View {
-    @State var shouldShowOnboarding = true
+    @AppStorage("shouldShowOnboarding") var shouldShowOnboarding = true
     var body: some View {
-
-            NavigationView{
-                VStack {
-                    HStack{
-                        Button(action: {
-                                shouldShowOnboarding.toggle()}, label: {
-                                    Image(systemName: "questionmark.circle").scaleEffect(2.0, anchor: .leading)
-                                })
-                        Spacer()
-                        Button(action: {
-                            //go to settings using navigationlink
-                                }, label: {
-                                    Image(systemName: "gearshape").scaleEffect(2, anchor: .trailing)
-                                })
-                    }.padding()
-                    
+        
+        NavigationView{
+            VStack {
+                HStack{
+                    Button(action: {
+                            shouldShowOnboarding.toggle()}, label: {
+                                Image(systemName: "questionmark.circle").scaleEffect(2.0, anchor: .leading)
+                            })
                     Spacer()
-                    Text("Tap Screen to give voice command").lineLimit(/*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
-                    VoiceIcon()
-                    Text("Go to ECSS2.306")
-                        .fontWeight(.ultraLight)
-                    Text("Go to the nearest restroom")
-                        .fontWeight(.ultraLight)
-                    Text("Call 911")
-                        .fontWeight(.ultraLight)
-                    Text("Settings..")
-                        .fontWeight(.ultraLight)
-                    Spacer()
-
-                }.navigationBarHidden(true)
+               
+                    NavigationLink(
+                        destination: Settings(),
+                        label: {Image(systemName: "gearshape").scaleEffect(2, anchor: .trailing)
+                        })
                 
-            }.fullScreenCover(isPresented: $shouldShowOnboarding, content: {
-                OnboardingView(shouldShowOnboarding: $shouldShowOnboarding)
-            })
-        }
+            }.padding()
+            
+            Spacer()
+            Text("Tap Screen to give voice command").lineLimit(/*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
+            VoiceIcon()
+            Text("'Go to ECSS2.306'")
+                .fontWeight(.ultraLight)
+            Text("'Go to the nearest restroom'")
+                .fontWeight(.ultraLight)
+            Text("'Call 911'")
+                .fontWeight(.ultraLight)
+            Text("'Settings..'")
+                .fontWeight(.ultraLight)
+            Spacer()
+            
+        }.navigationBarHidden(true)
+        
+    }.fullScreenCover(isPresented: $shouldShowOnboarding, content: {
+    OnboardingView(shouldShowOnboarding: $shouldShowOnboarding)
+    })
+}
 }
 
 
@@ -53,6 +54,7 @@ struct OnboardingView: View{
     var body: some View{
         VStack {
             VStack{
+                Text("HELP")
                 Spacer()
                 Text("Click Screen")
                 Text("or")
@@ -127,7 +129,7 @@ struct OnboardingView: View{
         if let window = UIApplication.shared.windows.first {
             if param==0{
                 //left swipe
-                window.rootViewController = UIHostingController(rootView: MainView())
+                window.rootViewController = UIHostingController(rootView: Settings())
             }
             else if param==1{
                 //right swipe

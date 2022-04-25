@@ -15,6 +15,7 @@
 		B0183CBA281620F400B63288 /* VoiceIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0183CB9281620F400B63288 /* VoiceIcon.swift */; };
 		B0183CBC281623C200B63288 /* DisplayBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0183CBB281623C200B63288 /* DisplayBox.swift */; };
 		B0183CBE28162BF600B63288 /* AidIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0183CBD28162BF600B63288 /* AidIcon.swift */; };
+		B0183CC0281643D100B63288 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0183CBF281643D100B63288 /* Settings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		B0183CB9281620F400B63288 /* VoiceIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceIcon.swift; sourceTree = "<group>"; };
 		B0183CBB281623C200B63288 /* DisplayBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayBox.swift; sourceTree = "<group>"; };
 		B0183CBD28162BF600B63288 /* AidIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AidIcon.swift; sourceTree = "<group>"; };
+		B0183CBF281643D100B63288 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				B0183CB9281620F400B63288 /* VoiceIcon.swift */,
 				B0183CBB281623C200B63288 /* DisplayBox.swift */,
 				B0183CBD28162BF600B63288 /* AidIcon.swift */,
+				B0183CBF281643D100B63288 /* Settings.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 				B0183CBA281620F400B63288 /* VoiceIcon.swift in Sources */,
 				B0183CAD2814F31A00B63288 /* MainView.swift in Sources */,
 				B0183CBE28162BF600B63288 /* AidIcon.swift in Sources */,
+				B0183CC0281643D100B63288 /* Settings.swift in Sources */,
 				B0183C9A2814C00500B63288 /* VisionApp.swift in Sources */,
 				B0183CBC281623C200B63288 /* DisplayBox.swift in Sources */,
 			);

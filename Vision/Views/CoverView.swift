@@ -41,7 +41,7 @@ struct CoverView: View {
             }
         }
         .onAppear() {
-            Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { (_) in
+            Timer.scheduledTimer(withTimeInterval: 10, repeats: false) { (_) in
                 withAnimation {
                     self.showSecondView = true
                     goHome()
