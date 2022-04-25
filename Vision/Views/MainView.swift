@@ -10,13 +10,41 @@ import SwiftUI
 struct MainView: View {
     @State var shouldShowOnboarding = true
     var body: some View {
-        Text("Main View")
-        NavigationView{
-            
-        }.fullScreenCover(isPresented: $shouldShowOnboarding, content: {
-            OnboardingView(shouldShowOnboarding: $shouldShowOnboarding)
-        })
-    }
+
+            NavigationView{
+                VStack {
+                    HStack{
+                        Button(action: {
+                                shouldShowOnboarding.toggle()}, label: {
+                                    Image(systemName: "questionmark.circle").scaleEffect(2.0, anchor: .leading)
+                                })
+                        Spacer()
+                        Button(action: {
+                            //go to settings using navigationlink
+                                }, label: {
+                                    Image(systemName: "gearshape").scaleEffect(2, anchor: .trailing)
+                                })
+                    }.padding()
+                    
+                    Spacer()
+                    Text("Tap Screen to give voice command").lineLimit(/*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
+                    VoiceIcon()
+                    Text("Go to ECSS2.306")
+                        .fontWeight(.ultraLight)
+                    Text("Go to the nearest restroom")
+                        .fontWeight(.ultraLight)
+                    Text("Call 911")
+                        .fontWeight(.ultraLight)
+                    Text("Settings..")
+                        .fontWeight(.ultraLight)
+                    Spacer()
+
+                }.navigationBarHidden(true)
+                
+            }.fullScreenCover(isPresented: $shouldShowOnboarding, content: {
+                OnboardingView(shouldShowOnboarding: $shouldShowOnboarding)
+            })
+        }
 }
 
 
@@ -30,8 +58,7 @@ struct OnboardingView: View{
                 Text("or")
                 Text("say 'VISION'").padding()
                 Spacer()
-                Image(systemName: "mic.circle").scaleEffect(3, anchor: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).padding()
-                
+                VoiceIcon()
                 Text("Swipe Commands").padding()
                 
                 HStack(alignment: .bottom){
@@ -57,7 +84,7 @@ struct OnboardingView: View{
                     }
                 }.padding()
                 
-
+                
                 Spacer()
             }.gesture(
                 LongPressGesture(minimumDuration: 2).onEnded({ _ in
@@ -90,7 +117,7 @@ struct OnboardingView: View{
             } label: {
                 Text("Get Started")
             }
-
+            
             
         }
     }

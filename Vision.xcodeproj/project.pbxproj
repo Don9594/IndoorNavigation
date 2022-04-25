@@ -12,6 +12,9 @@
 		B0183CA12814C00800B63288 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0183CA02814C00800B63288 /* Preview Assets.xcassets */; };
 		B0183CAD2814F31A00B63288 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0183CAC2814F31A00B63288 /* MainView.swift */; };
 		B0183CB828159B1700B63288 /* CoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0183CB728159B1700B63288 /* CoverView.swift */; };
+		B0183CBA281620F400B63288 /* VoiceIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0183CB9281620F400B63288 /* VoiceIcon.swift */; };
+		B0183CBC281623C200B63288 /* DisplayBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0183CBB281623C200B63288 /* DisplayBox.swift */; };
+		B0183CBE28162BF600B63288 /* AidIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0183CBD28162BF600B63288 /* AidIcon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		B0183CA22814C00800B63288 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B0183CAC2814F31A00B63288 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		B0183CB728159B1700B63288 /* CoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverView.swift; sourceTree = "<group>"; };
+		B0183CB9281620F400B63288 /* VoiceIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceIcon.swift; sourceTree = "<group>"; };
+		B0183CBB281623C200B63288 /* DisplayBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayBox.swift; sourceTree = "<group>"; };
+		B0183CBD28162BF600B63288 /* AidIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AidIcon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +85,9 @@
 				B0183C992814C00500B63288 /* VisionApp.swift */,
 				B0183CAC2814F31A00B63288 /* MainView.swift */,
 				B0183CB728159B1700B63288 /* CoverView.swift */,
+				B0183CB9281620F400B63288 /* VoiceIcon.swift */,
+				B0183CBB281623C200B63288 /* DisplayBox.swift */,
+				B0183CBD28162BF600B63288 /* AidIcon.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -174,8 +183,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0183CB828159B1700B63288 /* CoverView.swift in Sources */,
+				B0183CBA281620F400B63288 /* VoiceIcon.swift in Sources */,
 				B0183CAD2814F31A00B63288 /* MainView.swift in Sources */,
+				B0183CBE28162BF600B63288 /* AidIcon.swift in Sources */,
 				B0183C9A2814C00500B63288 /* VisionApp.swift in Sources */,
+				B0183CBC281623C200B63288 /* DisplayBox.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
