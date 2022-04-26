@@ -9,7 +9,7 @@ import SwiftUI
 import UIKit
 struct CoverView: View {
     
-    @State var showSecondView = false
+   
     var body: some View {
         Group {
             VStack{
@@ -17,7 +17,7 @@ struct CoverView: View {
                 Text("VISION").font(Font.custom("Avenir Heavy",size:60)).padding()
                 Spacer()
                 Button(action: {
-                    showSecondView = true
+                    
                     goHome()
                 }, label: {
                     AidIcon().scaleEffect(1.5)
@@ -41,9 +41,9 @@ struct CoverView: View {
             }
         }
         .onAppear() {
-            Timer.scheduledTimer(withTimeInterval: 10, repeats: false) { (_) in
+            Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { (_) in
                 withAnimation {
-                    self.showSecondView = true
+                    
                     goHome()
                 }
             }

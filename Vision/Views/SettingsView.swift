@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Settings: View {
+struct SettingsView: View {
     @State var languagePicker = 0
     @State var visualPicker = 0
     @State var routePicker = 0
@@ -23,10 +23,12 @@ struct Settings: View {
     let nickname = ["vision"]
     let gotomain = ["Swipe Up"]
     let manual = ["Press long"]
+
     
     var body: some View {
-        
+        NavigationView{
         VStack {
+            
             Text("Settings").font(Font.custom("Avenir Heavy",size:50)).padding()
             Text("Tell me your preference").font(Font.custom("Avenir",size:20)).padding()
             VoiceIcon()
@@ -89,8 +91,57 @@ struct Settings: View {
             }
             }
             Spacer()
-        }
+            NavigationLink("I need help", destination: EmergencyView()).navigationBarHidden(true)
+            }.gesture(DragGesture(minimumDistance: 10, coordinateSpace: .local)
+                        .onEnded({ value in
+                            if value.translation.width < 0 {
+                                // left
+                                go(param: 0)
+                            }
+                            
+                            if value.translation.width > 0 {
+                                // right
+                                go(param: 1)
+                                
+                            }
+                            if value.translation.height < 0 {
+                                // up
+                                go(param: 2)
+                            }
+                            
+                            if value.translation.height > 0 {
+                                // down
+                                go(param: 3)
+                            }
+                        }))
+        }.navigationBarTitle("").navigationBarTitleDisplayMode(.inline)
         
+    }
+    func go(param:Int) {
+        
+        if let window = UIApplication.shared.windows.first {
+            if param==0{
+                //left swipe
+                window.rootViewController = UIHostingController(rootView: MainView())
+            }
+            else if param==1{
+                //right swipe
+                window.rootViewController = UIHostingController(rootView: MainView())
+            }
+            else if param==2{
+                // top swipe
+                window.rootViewController = UIHostingController(rootView: MainView())
+            }
+            else if param==3{
+                //down swipe
+                window.rootViewController = UIHostingController(rootView: MainView())
+            }
+            else{
+                //do nothing
+            }
+            
+            window.makeKeyAndVisible()
+        }
     }
     
 }
@@ -98,6 +149,6 @@ struct Settings: View {
 
 struct Settings_Previews: PreviewProvider {
     static var previews: some View {
-        Settings()
+        SettingsView()
     }
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainView: View {
-    @AppStorage("shouldShowOnboarding") var shouldShowOnboarding = true
+    @AppStorage("shouldShowOnboarding") var  shouldShowOnboarding = true
     var body: some View {
         
         NavigationView{
@@ -16,36 +16,85 @@ struct MainView: View {
                 HStack{
                     Button(action: {
                             shouldShowOnboarding.toggle()}, label: {
-                                Image(systemName: "questionmark.circle").scaleEffect(2.0, anchor: .leading)
+                                Image(systemName: "questionmark.circle").scaleEffect(2.0, anchor: .leading).foregroundColor(.black)
                             })
                     Spacer()
-               
+                    
+                    
                     NavigationLink(
-                        destination: Settings(),
-                        label: {Image(systemName: "gearshape").scaleEffect(2, anchor: .trailing)
+                        destination: SettingsView(),
+                        label: {Image(systemName: "gearshape").scaleEffect(2, anchor: .trailing).foregroundColor(.black)
                         })
+                    
+                }.padding()
+                VStack{
+                    Text("Main").font(Font.custom("Avenir Heavy",size:50))
+                    Spacer()
+                    Text("Tap Screen to give voice command").lineLimit(/*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
+                    VoiceIcon()
+                    Text("'Go to ECSS2.306'")
+                        .fontWeight(.ultraLight)
+                    Text("'Go to the nearest restroom'")
+                        .fontWeight(.ultraLight)
+                    Text("'Call 911'")
+                        .fontWeight(.ultraLight)
+                    Text("'Settings..'")
+                        .fontWeight(.ultraLight)
+                    Spacer()
+                }.gesture(DragGesture(minimumDistance: 10, coordinateSpace: .local)
+                            .onEnded({ value in
+                                if value.translation.width < 0 {
+                                    // left
+                                    go(param: 0)
+                                }
+                                
+                                if value.translation.width > 0 {
+                                    // right
+                                    go(param: 1)
+                                    
+                                }
+                                if value.translation.height < 0 {
+                                    // up
+                                    go(param: 2)
+                                }
+                                
+                                if value.translation.height > 0 {
+                                    // down
+                                    go(param: 3)
+                                }
+                            }))
+                NavigationLink("Click for Navigation", destination: NavMapView(place: IdentifiablePlace(lat: 32.986310, long: -96.750730)))
                 
-            }.padding()
+            }.navigationBarTitle("").navigationBarHidden(true)
             
-            Spacer()
-            Text("Tap Screen to give voice command").lineLimit(/*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
-            VoiceIcon()
-            Text("'Go to ECSS2.306'")
-                .fontWeight(.ultraLight)
-            Text("'Go to the nearest restroom'")
-                .fontWeight(.ultraLight)
-            Text("'Call 911'")
-                .fontWeight(.ultraLight)
-            Text("'Settings..'")
-                .fontWeight(.ultraLight)
-            Spacer()
-            
-        }.navigationBarHidden(true)
+        }.fullScreenCover(isPresented: $shouldShowOnboarding, content: { OnboardingView(shouldShowOnboarding: $shouldShowOnboarding)})
+    }
+    func go(param:Int) {
         
-    }.fullScreenCover(isPresented: $shouldShowOnboarding, content: {
-    OnboardingView(shouldShowOnboarding: $shouldShowOnboarding)
-    })
-}
+        if let window = UIApplication.shared.windows.first {
+            if param==0{
+                //left swipe
+                window.rootViewController = UIHostingController(rootView: SettingsView())
+            }
+            else if param==1{
+                //right swipe
+                window.rootViewController = UIHostingController(rootView: SettingsView())
+            }
+            else if param==2{
+                // top swipe
+                window.rootViewController = UIHostingController(rootView: SettingsView())
+            }
+            else if param==3{
+                //down swipe
+                window.rootViewController = UIHostingController(rootView: SettingsView())
+            }
+            else{
+                //do nothing
+            }
+            
+            window.makeKeyAndVisible()
+        }
+    }
 }
 
 
@@ -54,7 +103,7 @@ struct OnboardingView: View{
     var body: some View{
         VStack {
             VStack{
-                Text("HELP")
+                Text("HELP").font(Font.custom("Avenir Heavy",size:50))
                 Spacer()
                 Text("Click Screen")
                 Text("or")
@@ -88,11 +137,7 @@ struct OnboardingView: View{
                 
                 
                 Spacer()
-            }.gesture(
-                LongPressGesture(minimumDuration: 2).onEnded({ _ in
-                    //call voice assistant
-                })
-            ).gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local)
+            }.gesture(DragGesture(minimumDistance: 10, coordinateSpace: .local)
                         .onEnded({ value in
                             if value.translation.width < 0 {
                                 // left
@@ -129,7 +174,7 @@ struct OnboardingView: View{
         if let window = UIApplication.shared.windows.first {
             if param==0{
                 //left swipe
-                window.rootViewController = UIHostingController(rootView: Settings())
+                window.rootViewController = UIHostingController(rootView: MainView())
             }
             else if param==1{
                 //right swipe
